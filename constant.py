@@ -1,3 +1,5 @@
+import pygame
+
 SCREEN_SIZE = (600, 500)
 SCREEN_COLOR = (200, 255, 255)
 TICK_RATE = 60
@@ -8,6 +10,8 @@ PLAYER2_POS = (520, 200)
 PLAYER_SIZE = (50, 150)
 PLAYER_SPEED = 4
 PLAYER_IMG = 'racket.png'
+PLAYER1_CONTROL = {'Up': pygame.K_w, 'Down': pygame.K_s}
+PLAYER2_CONTROL = {'Up': pygame.K_UP, 'Down': pygame.K_DOWN}
 
 BALL_SIZE = (50, 50)
 BALL_SPEED = 4

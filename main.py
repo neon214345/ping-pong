@@ -35,6 +35,11 @@ window = pygame.display.set_mode(SCREEN_SIZE)
 
 timer = pygame.time.Clock()
 
+pygame.font.init()
+font = pygame.font.Font(None, FONT_SIZE)
+lose1 = font.render(PLAYER1_LOSE_TEXT, True, FONT_COLOR)
+lose2 = font.render(PLAYER2_LOSE_TEXT, True, FONT_COLOR)
+
 player1 = Player(PLAYER_IMG, PLAYER1_POS, PLAYER_SPEED, PLAYER_SIZE, PLAYER1_CONTROL)
 player2 = Player(PLAYER_IMG, PLAYER2_POS, PLAYER_SPEED, PLAYER_SIZE, PLAYER2_CONTROL)
 
@@ -73,6 +78,14 @@ while run:
         
         if ball.rect.y > SCREEN_SIZE[1] - BALL_SIZE[1]:
             ball_dy = -abs(ball_dy)
+        
+        if ball.rect.x < 0:
+            pause = True
+            window.blit(lose1, FONT_POSE)
+
+        if ball.rect.x > SCREEN_SIZE[0] - BALL_SIZE[0]:
+            pause = True
+            window.blit(lose2, FONT_POSE)
 
     pygame.display.update()
     timer.tick(TICK_RATE)
